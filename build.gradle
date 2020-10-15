@@ -14,6 +14,9 @@ taboolib {
     tabooLibVersion = '5.41'
     loaderVersion = '2.6'
     classifier = null
+    relocate('com.github.benmanes.caffeine', 'ink.ptms.porticus.lib.caffeine')
+    relocate('org.checkerframework', 'ink.ptms.porticus.lib.checkerframework')
+    relocate('com.google.errorprone', 'ink.ptms.porticus.lib.errorprone')
 }
 
 repositories {
