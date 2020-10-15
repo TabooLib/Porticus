@@ -1,0 +1,9 @@
+
+
+#         Powered by TabooLib 5.0         #
+
+
+name: ${name}
+main: ink.ptms.porticus.bungeeside.Porticus
+version: ${version}
+authors: ['坏黑']
