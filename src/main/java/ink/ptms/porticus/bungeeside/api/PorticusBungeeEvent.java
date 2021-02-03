@@ -5,6 +5,8 @@ import net.md_5.bungee.BungeeCord;
 import net.md_5.bungee.api.connection.Server;
 import net.md_5.bungee.api.plugin.Cancellable;
 import net.md_5.bungee.api.plugin.Event;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
@@ -41,6 +43,21 @@ public class PorticusBungeeEvent extends Event implements Cancellable, Response 
 	@Override
 	public void setCancelled(boolean cancel) {
 		this.cancel = cancel;
+	}
+
+	@NotNull
+	public String get(int index) {
+		return this.args[index];
+	}
+
+	@NotNull
+	public String getOrElse(int index, String orElse) {
+		return index < this.args.length ? this.args[index] : orElse;
+	}
+
+	@Nullable
+	public String getOrNull(int index) {
+		return index < this.args.length ? this.args[index] : null;
 	}
 
 	public Server getSender() {

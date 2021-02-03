@@ -4,6 +4,8 @@ import ink.ptms.porticus.common.Response;
 import io.izzel.taboolib.module.event.EventCancellable;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
@@ -29,6 +31,21 @@ public class PorticusBukkitEvent extends EventCancellable<PorticusBukkitEvent> i
 
     @Override
     public void response(String... args) {
+    }
+
+    @NotNull
+    public String get(int index) {
+        return this.args[index];
+    }
+
+    @NotNull
+    public String getOrElse(int index, String orElse) {
+        return index < this.args.length ? this.args[index] : orElse;
+    }
+
+    @Nullable
+    public String getOrNull(int index) {
+        return index < this.args.length ? this.args[index] : null;
     }
 
     public Player getSender() {
