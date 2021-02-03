@@ -30,7 +30,7 @@ public class PorticusListener implements Listener, PluginMessageListener {
     }
 
     @TSchedule(period = 20)
-    void timeout() {
+    static void timeout() {
         for (Mission mission : ink.ptms.porticus.api.PorticusAPI.getMissions()) {
             if (!mission.isTimeout()) {
                 if (mission.getTimeoutRunnable() != null) {

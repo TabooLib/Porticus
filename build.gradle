@@ -35,6 +35,7 @@ dependencies {
 processResources {
     from(sourceSets.main.resources.srcDirs) {
         include 'plugin.yml'
+        include 'bungee.yml'
         expand name: rootProject.name, main: project.group + ".boot.PluginBoot", version: project.version, "libVersion": taboolib.tabooLibVersion
     }
 }

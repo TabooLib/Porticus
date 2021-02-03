@@ -6,4 +6,4 @@
 name: ${name}
 main: ink.ptms.porticus.bungeeside.Porticus
 version: ${version}
-authors: ['坏黑']
+author: '坏黑'
