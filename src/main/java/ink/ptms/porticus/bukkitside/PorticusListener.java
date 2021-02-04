@@ -25,8 +25,8 @@ import java.io.IOException;
 public class PorticusListener implements Listener, PluginMessageListener {
 
     public PorticusListener() {
-        Bukkit.getMessenger().registerIncomingPluginChannel(Porticus.getInst().getPlugin(), "porticus", this);
-        Bukkit.getMessenger().registerOutgoingPluginChannel(Porticus.getInst().getPlugin(), "porticus");
+        Bukkit.getMessenger().registerIncomingPluginChannel(Porticus.INSTANCE.getPlugin(), "porticus:main", this);
+        Bukkit.getMessenger().registerOutgoingPluginChannel(Porticus.INSTANCE.getPlugin(), "porticus:main");
     }
 
     @TSchedule(period = 20)
@@ -63,7 +63,7 @@ public class PorticusListener implements Listener, PluginMessageListener {
 
     @Override
     public void onPluginMessageReceived(@NotNull String channel, @NotNull Player player, @NotNull byte[] bytes) {
-        if (channel.equalsIgnoreCase("porticus")) {
+        if (channel.equalsIgnoreCase("porticus:main")) {
             try {
                 Message message = MessageReader.read(bytes);
                 if (message.isCompleted()) {

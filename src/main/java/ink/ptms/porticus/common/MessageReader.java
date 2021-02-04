@@ -4,7 +4,7 @@ import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import io.izzel.taboolib.util.IO;
+import ink.ptms.porticus.common.util.IO;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -30,7 +30,7 @@ public class MessageReader {
      * @param packet 通讯数据（未经过处理的原始内容）
      */
     public static Message read(byte[] packet) throws IOException {
-        return read(IO.readFully(new ByteArrayInputStream(packet), StandardCharsets.UTF_8));
+        return read(new String(packet, StandardCharsets.UTF_8));
     }
 
     /**
@@ -39,6 +39,7 @@ public class MessageReader {
      * @param packet 通讯数据（未经过处理的原始内容）
      */
     public static Message read(String packet) {
+        System.out.println("[Porticus] " + packet);
         JsonObject json = new JsonParser().parse(packet).getAsJsonObject();
         Message message = queueMessages.getIfPresent(json.get("uid").getAsString());
         if (message == null) {

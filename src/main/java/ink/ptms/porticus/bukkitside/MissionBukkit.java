@@ -21,6 +21,6 @@ public class MissionBukkit extends Mission {
     @Override
     public void run(@NotNull Object target) {
         super.run(target);
-        Porticus.getInst().sendBukkitMessage((Player) target, command);
+        Porticus.INSTANCE.sendBukkitMessage((Player) target, command);
     }
 }

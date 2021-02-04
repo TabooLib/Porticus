@@ -14,22 +14,17 @@ import java.io.IOException;
  */
 public class Porticus extends Plugin {
 
-    @TInject
-    private static Porticus inst;
+    public static Porticus INSTANCE = new Porticus();
 
     public void sendBukkitMessage(Player player, String... args) {
         Bukkit.getScheduler().runTaskAsynchronously(getPlugin(), () -> {
             try {
                 for (byte[] bytes : MessageBuilder.create(args)) {
-                    player.sendPluginMessage(getPlugin(), "porticus", bytes);
+                    player.sendPluginMessage(getPlugin(), "porticus:main", bytes);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
-    }
-
-    public static Porticus getInst() {
-        return inst;
     }
 }

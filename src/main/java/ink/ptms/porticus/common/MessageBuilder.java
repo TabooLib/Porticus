@@ -10,6 +10,7 @@ import io.izzel.taboolib.kotlin.Serializer;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /**
@@ -50,11 +51,7 @@ public class MessageBuilder {
                 json.addProperty("data", source.substring(0, source.length() - (source.length() - MESSAGE_LENGTH)));
                 source = source.substring(MESSAGE_LENGTH);
             }
-            try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                 DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream)) {
-                dataOutputStream.writeUTF(json.toString());
-                messages.add(byteArrayOutputStream.toByteArray());
-            }
+            messages.add(json.toString().getBytes(StandardCharsets.UTF_8));
             System.out.println("[Porticus] " + Serializer.INSTANCE.getGson().toJson(json.toString()));
         }
         return messages;
