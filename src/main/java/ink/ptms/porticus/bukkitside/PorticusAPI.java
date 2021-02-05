@@ -5,6 +5,8 @@ import ink.ptms.porticus.api.APIType;
 import ink.ptms.porticus.api.Mission;
 import org.bukkit.Bukkit;
 
+import java.util.UUID;
+
 /**
  * Porticus
  * ink.ptms.porticus.bukkitside.PorticusAPI
@@ -22,5 +24,10 @@ public class PorticusAPI extends API {
     @Override
     public Mission createMission() {
         return new MissionBukkit();
+    }
+
+    @Override
+    public Mission createMission(UUID uid) {
+        return new MissionBukkit(uid);
     }
 }

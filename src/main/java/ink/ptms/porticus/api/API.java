@@ -1,5 +1,7 @@
 package ink.ptms.porticus.api;
 
+import java.util.UUID;
+
 /**
  * Porticus
  * ink.ptms.porticus.api.API
@@ -24,4 +26,6 @@ public abstract class API {
      * @return {@link Mission}
      */
     public abstract Mission createMission();
+
+    public abstract Mission createMission(UUID uid);
 }

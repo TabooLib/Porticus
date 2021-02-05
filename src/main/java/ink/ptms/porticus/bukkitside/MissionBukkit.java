@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -17,6 +18,13 @@ import java.util.concurrent.TimeUnit;
  * @since 2020/10/15 10:03 下午
  */
 public class MissionBukkit extends Mission {
+
+    public MissionBukkit() {
+    }
+
+    public MissionBukkit(UUID uid) {
+        super(uid);
+    }
 
     @Override
     public void run(@NotNull Object target) {

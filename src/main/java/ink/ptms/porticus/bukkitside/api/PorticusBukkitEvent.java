@@ -1,5 +1,6 @@
 package ink.ptms.porticus.bukkitside.api;
 
+import ink.ptms.porticus.api.PorticusAPI;
 import ink.ptms.porticus.common.Response;
 import io.izzel.taboolib.module.event.EventCancellable;
 import org.bukkit.Bukkit;
@@ -31,6 +32,7 @@ public class PorticusBukkitEvent extends EventCancellable<PorticusBukkitEvent> i
 
     @Override
     public void response(String... args) {
+        PorticusAPI.getAPI().createMission(uid).command(args).run(sender);
     }
 
     @NotNull

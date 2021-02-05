@@ -18,7 +18,7 @@ import java.util.function.Consumer;
  */
 public abstract class Mission {
 
-    protected final UUID uid = UUID.randomUUID();
+    protected final UUID uid;
 
     protected Consumer<String[]> consumer;
     protected Runnable runnable;
@@ -26,11 +26,19 @@ public abstract class Mission {
     protected long timeout = TimeUnit.SECONDS.toMillis(10);
     private long start;
 
+    public Mission() {
+        this(UUID.randomUUID());
+    }
+
+    public Mission(UUID uid) {
+        this.uid = uid;
+    }
+
     /**
      * 通讯任务是否超时
      */
     public boolean isTimeout() {
-        return timeout > 0 && start + timeout < System.currentTimeMillis();
+        return start + timeout < System.currentTimeMillis();
     }
 
     /**
@@ -39,8 +47,10 @@ public abstract class Mission {
      * @param target 发送目标，根据服务端类型传入对应玩家对象，当 API 类型为 SERVER 时传入 ProxyPlayer 类型，为 CLIENT 时则传入 Player 类型。
      */
     public void run(@NotNull Object target) {
+        if (consumer != null || runnable != null) {
+            PorticusAPI.getMissions().add(this);
+        }
         this.start = System.currentTimeMillis();
-        PorticusAPI.getMissions().add(this);
     }
 
     /**

@@ -4,6 +4,8 @@ import ink.ptms.porticus.api.API;
 import ink.ptms.porticus.api.APIType;
 import ink.ptms.porticus.api.Mission;
 
+import java.util.UUID;
+
 /**
  * Porticus
  * ink.ptms.porticus.bungeeside.PorticusAPI
@@ -21,5 +23,10 @@ public class PorticusAPI extends API {
     @Override
     public Mission createMission() {
         return new MissionBungee();
+    }
+
+    @Override
+    public Mission createMission(UUID uid) {
+        return new MissionBungee(uid);
     }
 }

@@ -1,5 +1,7 @@
 package ink.ptms.porticus.bungeeside.api;
 
+import ink.ptms.porticus.api.PorticusAPI;
+import ink.ptms.porticus.bungeeside.MissionBungee;
 import ink.ptms.porticus.common.Response;
 import net.md_5.bungee.BungeeCord;
 import net.md_5.bungee.api.connection.Server;
@@ -33,6 +35,7 @@ public class PorticusBungeeEvent extends Event implements Cancellable, Response 
 
 	@Override
 	public void response(String... args) {
+		PorticusAPI.getAPI().createMission(uid).command(args).run(sender);
 	}
 
 	@Override
