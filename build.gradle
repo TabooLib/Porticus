@@ -26,10 +26,10 @@ repositories {
 
 dependencies {
     taboo 'com.github.ben-manes.caffeine:caffeine:2.8.6'
-    compile 'ink.ptms.core:v11600:11600:all'
-    compile 'net.md_5.bungee:BungeeCord:1:all'
-    compile 'org.jetbrains.kotlin:kotlin-stdlib'
-    compileOnly fileTree(dir: 'libs', includes: ['*.jar'])
+    implementation 'ink.ptms.core:v11600:11600:all'
+    implementation 'net.md_5.bungee:BungeeCord:1:all'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+    implementation fileTree(dir: 'libs', includes: ['*.jar'])
 }
 
 processResources {
