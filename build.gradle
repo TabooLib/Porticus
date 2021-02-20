@@ -11,7 +11,7 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 taboolib {
-    tabooLibVersion = '5.54'
+    tabooLibVersion = '5.55'
     loaderVersion = '2.11'
     classifier = null
     relocate('com.github.benmanes.caffeine', 'ink.ptms.porticus.lib.caffeine')

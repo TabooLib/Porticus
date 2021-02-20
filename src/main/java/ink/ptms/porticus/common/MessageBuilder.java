@@ -52,7 +52,6 @@ public class MessageBuilder {
                 source = source.substring(MESSAGE_LENGTH);
             }
             messages.add(json.toString().getBytes(StandardCharsets.UTF_8));
-            System.out.println("[Porticus] " + Serializer.INSTANCE.getGson().toJson(json.toString()));
         }
         return messages;
     }
